@@ -261,5 +261,17 @@ WithdrawalRequest:
     tokenAddress:
       type: string
   example:
-    amount: 1000
+    amount: 10
     tokenAddress: '0xD5989d415AcAC38E2832eB5C519390a2AF15B9F6'
+
+WithdrawalResponse:
+  type: object
+  properties:
+    adminSignature:
+      type: number
+    nonce:
+      type: string
+  example:
+    adminSignature: "0x438bcffdfdb9ea046084215f9364bee0e9af7c433e2e09e2f4eb284e904762ca48e0355c2fbca2b7687b3f3a4d3c4e0fd7d7480ded5de644718dbbb45eb9eb471b"
+    nonce: 3654697
+
