@@ -27,15 +27,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/WithdrawRequestBody"
+              $ref: "#/components/schemas/WithdrawalRequest"
         required: true
       responses:
         200:
           description: 'Successful operation'
-          # content:
-          #   application/json:
-          #     schema:
-          #       $ref: '#/components/schemas/ParentStatistics'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WithdrawalResponse'
         400:
           description: 'Bad request'
         404:
@@ -728,10 +728,10 @@ components:
     #------------------------
     User:
       $ref: './components/schemas/user.yml#/User'
-    WithdrawRequestBody:
-      $ref: "./components/schemas/user.yml#/WithdrawRequestBody"
-  #   ChildrenUsers:
-  #     $ref: "./components/schemas/user.yml#/ChildrenUsers"
+    WithdrawalRequest:
+      $ref: "./components/schemas/user.yml#/WithdrawalRequest"
+    WithdrawalResponse:
+      $ref: "./components/schemas/user.yml#/WithdrawalResponse"
   #   ChildStatistics:
   #     $ref: "./components/schemas/user.yml#/ChildStatistics"
   #   ChildrenStatistics:

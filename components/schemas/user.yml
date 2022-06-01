@@ -1,28 +1,28 @@
 User:
-  type: "object"
+  type: 'object'
   properties:
     id:
-      type: "integer"
-      format: "int64"
+      type: 'integer'
+      format: 'int64'
     username:
-      type: "string"
+      type: 'string'
     birthday:
-      type: "string"
+      type: 'string'
     name:
-      type: "string"
+      type: 'string'
     email:
-      type: "string"
+      type: 'string'
       nullable: true
     password:
-      type: "string"
+      type: 'string'
     phone:
-      type: "string"
+      type: 'string'
     avatarUrl:
-      type: "string"
+      type: 'string'
     gender:
-      type: "string"
+      type: 'string'
     childrenLinked:
-      type: "array"
+      type: 'array'
       items:
         type: object
         properties:
@@ -33,16 +33,16 @@ User:
           id:
             type: number
     userRole:
-      type: "string"
+      type: 'string'
       enum: [ADMIN, PARENT, CHILDREN]
   example:
     id: 1
     username: vduy
-    birthday: "01-02-1992"
+    birthday: '01-02-1992'
     name: Duy Vu
     email: vduy@yopmail.com
-    password: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
-    phone: "0335214215"
+    password: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+    phone: '0335214215'
     avatarUrl: http://image.url1.com/
     gender: male
     childrenLinked: [pop, kid]
@@ -51,8 +51,8 @@ User:
 
 UserInformation:
   allOf:
-    - $ref: "#/User"
-    - type: "object"
+    - $ref: '#/User'
+    - type: 'object'
       properties:
         createdAt:
           type: string
@@ -69,10 +69,10 @@ UserInformation:
   example:
     id: 12
     username: pop
-    birthday: "01-02-2015"
+    birthday: '01-02-2015'
     name: Pop
     email: null
-    password: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+    password: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
     phone: null
     avatarUrl: http://image.url22.com/
     gender: male
@@ -105,8 +105,8 @@ ChildrenUsers:
 
 ChildStatistics:
   allOf:
-    - $ref: "#/User"
-    - type: "object"
+    - $ref: '#/User'
+    - type: 'object'
       properties:
         completedCourse:
           type: integer
@@ -131,11 +131,11 @@ ChildStatistics:
   example:
     id: 1
     username: pop1234
-    birthday: "01-02-2002"
+    birthday: '01-02-2002'
     name: Pop
     email: null
-    password: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
-    phone: "0335214215"
+    password: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+    phone: '0335214215'
     avatarUrl: http://image.url1.com/
     gender: male
     childrenLinked: []
@@ -154,7 +154,7 @@ ChildStatistics:
 ChildrenStatistics:
   type: array
   items:
-    $ref: "#/ChildStatistics"
+    $ref: '#/ChildStatistics'
 
 UserChangePassword:
   type: object
@@ -179,11 +179,11 @@ ParentStatistics:
     audit:
       type: array
       items:
-        $ref: "./chart.yml#/WeeklyHourAudit"
+        $ref: './chart.yml#/WeeklyHourAudit'
     childrenStatistics:
       type: array
       items:
-        $ref: "#/ChildStatistics"
+        $ref: '#/ChildStatistics'
 
 ParentChildrenCourse:
   type: object
@@ -199,7 +199,7 @@ ParentChildrenCourse:
           childName:
             type: string
           coursesDetail:
-            $ref: "./course.yml#/PersonalCourse"
+            $ref: './course.yml#/PersonalCourse'
   example:
     children:
       - soda
@@ -211,13 +211,13 @@ ParentChildrenCourse:
             duration: 1800
             members: 50
             authors: Duy Vu
-            courseImageUrl: "https://123.com"
+            courseImageUrl: 'https://123.com'
             userCourseProcess: 80
           - name: Tieng anh 7
             duration: 1800
             members: 50
             authors: Duy Vu
-            courseImageUrl: "https://123.com"
+            courseImageUrl: 'https://123.com'
             userCourseProcess: 90
       - childName: tuananh123
         coursesDetail:
@@ -225,13 +225,13 @@ ParentChildrenCourse:
             duration: 1800
             members: 50
             authors: Duy Vu
-            courseImageUrl: "https://123.com"
+            courseImageUrl: 'https://123.com'
             userCourseProcess: 100
           - name: Tieng anh 7
             duration: 1800
             members: 50
             authors: Duy Vu
-            courseImageUrl: "https://123.com"
+            courseImageUrl: 'https://123.com'
             userCourseProcess: 50
 
 TeacherContactInfo:
@@ -253,10 +253,13 @@ TeacherContactInfo:
       title: Ket qua bai quiz be tuan anh
       courseTitle: Toan lop 7
 
-WithdrawRequestBody:
+WithdrawalRequest:
   type: object
   properties:
     amount:
       type: number
+    tokenAddress:
+      type: string
   example:
     amount: 1000
+    tokenAddress: '0xD5989d415AcAC38E2832eB5C519390a2AF15B9F6'
