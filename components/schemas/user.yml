@@ -252,3 +252,11 @@ TeacherContactInfo:
     - timestamp: 1621766781
       title: Ket qua bai quiz be tuan anh
       courseTitle: Toan lop 7
+
+WithdrawRequestBody:
+  type: object
+  properties:
+    amount:
+      type: number
+  example:
+    amount: 1000
