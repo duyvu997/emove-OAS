@@ -40,6 +40,26 @@ paths:
           description: 'Bad request'
         404:
           description: 'Not found'
+  /users/my-shoes/select:
+    post:
+      tags:
+        - User
+      summary: update selection shoe
+      security:
+        - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SelectShoeRequest"
+        required: true
+      responses:
+        200:
+          description: 'Successful operation'
+        400:
+          description: 'Bad request'
+        404:
+          description: 'Not found'
   # /parent/teachers:
   #   get:
   #     tags:
@@ -732,6 +752,8 @@ components:
       $ref: "./components/schemas/user.yml#/WithdrawalRequest"
     WithdrawalResponse:
       $ref: "./components/schemas/user.yml#/WithdrawalResponse"
+    SelectShoeRequest:
+      $ref: "./components/schemas/user.yml#/SelectShoeRequest"
   #   ChildStatistics:
   #     $ref: "./components/schemas/user.yml#/ChildStatistics"
   #   ChildrenStatistics:

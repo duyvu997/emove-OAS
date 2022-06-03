@@ -275,3 +275,14 @@ WithdrawalResponse:
     adminSignature: "0x438bcffdfdb9ea046084215f9364bee0e9af7c433e2e09e2f4eb284e904762ca48e0355c2fbca2b7687b3f3a4d3c4e0fd7d7480ded5de644718dbbb45eb9eb471b"
     nonce: 3654697
 
+
+SelectShoeRequest:
+  type: object
+  properties:
+    ids:
+      type: array
+      items: number
+  example:
+    ids:  
+      - 6296e0326a8a4db0ef47b219
+      - 6296e0326a8a4db0ef47b220
