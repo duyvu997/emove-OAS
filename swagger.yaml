@@ -15,7 +15,7 @@ tags:
   # - name: Admin
   # - name: Parent
 paths:
-  #-----------PARENT------------------------------------------------------------------------------------------------------------------------------
+  #-----------USERS------------------------------------------------------------------------------------------------------------------------------
   /users/withdraw:
     post:
       tags:
@@ -27,7 +27,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/WithdrawalRequest"
+              $ref: '#/components/schemas/WithdrawalRequest'
         required: true
       responses:
         200:
@@ -51,11 +51,29 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SelectShoeRequest"
+              $ref: '#/components/schemas/SelectShoeRequest'
         required: true
       responses:
         200:
           description: 'Successful operation'
+        400:
+          description: 'Bad request'
+        404:
+          description: 'Not found'
+  /users/me:
+    get:
+      tags:
+        - User
+      summary: get user information
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserInformation'
         400:
           description: 'Bad request'
         404:
@@ -749,11 +767,13 @@ components:
     User:
       $ref: './components/schemas/user.yml#/User'
     WithdrawalRequest:
-      $ref: "./components/schemas/user.yml#/WithdrawalRequest"
+      $ref: './components/schemas/user.yml#/WithdrawalRequest'
     WithdrawalResponse:
-      $ref: "./components/schemas/user.yml#/WithdrawalResponse"
+      $ref: './components/schemas/user.yml#/WithdrawalResponse'
     SelectShoeRequest:
-      $ref: "./components/schemas/user.yml#/SelectShoeRequest"
+      $ref: './components/schemas/user.yml#/SelectShoeRequest'
+    UserInformation:
+      $ref: './components/schemas/user.yml#/UserInformation'
   #   ChildStatistics:
   #     $ref: "./components/schemas/user.yml#/ChildStatistics"
   #   ChildrenStatistics:

@@ -49,48 +49,6 @@ User:
     userRole: PARENT
     dryrun: true
 
-UserInformation:
-  allOf:
-    - $ref: '#/User'
-    - type: 'object'
-      properties:
-        createdAt:
-          type: string
-        parentInformation:
-          nullable: true
-          type: object
-          properties:
-            email:
-              type: string
-            avatarUrl:
-              type: string
-            id:
-              type: number
-  example:
-    id: 12
-    username: pop
-    birthday: '01-02-2015'
-    name: Pop
-    email: null
-    password: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
-    phone: null
-    avatarUrl: http://image.url22.com/
-    gender: male
-    childrenLinked:
-      - username: soda
-        avatarUrl: http://image.url1.com/
-        id: 11
-      - username: tuananh123
-        avatarUrl: http://image.url1.com/
-        id: 12
-    userRole: CHILDREN
-    parentEmail: vduy@yopmail.com
-    createdAt: 2020-11-15 13:40:58
-    parentInformation:
-      email: vduy@yopmail.com
-      avatarUrl: http://image.url1.com/
-      id: 11
-
 ChildrenUsers:
   type: array
   items:
@@ -272,9 +230,8 @@ WithdrawalResponse:
     nonce:
       type: string
   example:
-    adminSignature: "0x438bcffdfdb9ea046084215f9364bee0e9af7c433e2e09e2f4eb284e904762ca48e0355c2fbca2b7687b3f3a4d3c4e0fd7d7480ded5de644718dbbb45eb9eb471b"
+    adminSignature: '0x438bcffdfdb9ea046084215f9364bee0e9af7c433e2e09e2f4eb284e904762ca48e0355c2fbca2b7687b3f3a4d3c4e0fd7d7480ded5de644718dbbb45eb9eb471b'
     nonce: 3654697
-
 
 SelectShoeRequest:
   type: object
@@ -283,6 +240,30 @@ SelectShoeRequest:
       type: array
       items: number
   example:
-    ids:  
+    ids:
       - 6296e0326a8a4db0ef47b219
       - 6296e0326a8a4db0ef47b220
+
+UserInformation:
+  type: object
+  properties:
+  example:
+    'success': 'ok'
+    'data':
+      'boxesAmount':
+        'gift': 0
+        'lucky': 0
+      'totalTokenEarned': 0
+      'totalDistance': 0
+      'averageSpeed': 0
+      '_id': '6299c2ac30429fdc6e611308'
+      'email': 'ngocduy0997@gmail.com'
+      '__v': 0
+      'createdAt': '2022-06-03T08:13:32.077Z'
+      'isActivated': true
+      'lastActivateCode': 354041
+      'lockedEmv': 10000
+      'updatedAt': '2022-06-03T08:15:12.257Z'
+      'password': '$2b$10$Tj2c4j49X77HzH5HyeNHBO9tIw7wNH79jToCpDj902OtQaus/0JFa'
+      'nonce': 697689
+      'todayDistance': 0
