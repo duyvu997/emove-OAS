@@ -8,7 +8,7 @@ servers:
   - url: https://api-test.emoves.io/
 tags:
   - name: User
-  # - name: Shoe
+  - name: Upload
   # - name: Socket
   # - name: Auth
   # - name: Lesson
@@ -91,6 +91,30 @@ paths:
             schema:
               $ref: '#/components/schemas/UpdateUserRequest'
         required: true
+      responses:
+        200:
+          description: 'Successful operation'
+        400:
+          description: 'Bad request'
+        404:
+          description: 'Not found'
+
+  /uploads/v1:
+    post:
+      tags:
+        - Upload
+      summary: update image
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                # The property name 'file' will be used for all files.
+                file:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
       responses:
         200:
           description: 'Successful operation'
