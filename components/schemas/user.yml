@@ -267,3 +267,13 @@ UserInformation:
       'password': '$2b$10$Tj2c4j49X77HzH5HyeNHBO9tIw7wNH79jToCpDj902OtQaus/0JFa'
       'nonce': 697689
       'todayDistance': 0
+
+UpdateUserRequest:
+  type: object
+  properties:
+  example:
+    newPassword: 123456
+    oldPassword: 123123
+    userName: Emoves
+    avatar: https://picsum.photos/200/300
+    gender: MALE
