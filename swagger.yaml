@@ -98,6 +98,58 @@ paths:
           description: 'Bad request'
         404:
           description: 'Not found'
+  /users/report:
+    get:
+      tags:
+        - User
+      summary: get user statistics information
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - in: query
+          name: reportType
+          schema:
+            type: string
+            enum: ['MONTHLY', 'DAILY']
+          required: false
+          description: 'type of report'
+        - in: query
+          name: fromDate
+          schema:
+            type: string
+          required: false
+          description: 'DD-MM-YYYY'
+        - in: query
+          name: toDate
+          schema:
+            type: string
+          required: false
+          description: 'DD-MM-YYYY'
+        - in: query
+          name: fromMonth
+          schema:
+            type: string
+          required: false
+          description: 'MM-YYYY'
+        - in: query
+          name: toMonth
+          schema:
+            type: string
+          required: false
+          description: 'MM-YYYY'
+      responses:
+        200:
+          description: 'Successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserReportResponse"
+        400:
+          description: 'Bad request'
+        404:
+          description: 'Not found'
 
   /uploads/v1:
     post:
@@ -818,6 +870,8 @@ components:
       $ref: './components/schemas/user.yml#/UserInformation'
     UpdateUserRequest:
       $ref: './components/schemas/user.yml#/UpdateUserRequest'
+    UserReportResponse:
+      $ref: './components/schemas/user.yml#/UserReportResponse'
   #   ChildStatistics:
   #     $ref: "./components/schemas/user.yml#/ChildStatistics"
   #   ChildrenStatistics:
